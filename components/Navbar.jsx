@@ -34,7 +34,6 @@ const Navbar = () => {
     ]
 
     
-    
 
   return (
      <nav className='shadow-md flex justify-around max-lg:justify-between items-center py-6 px-3'>

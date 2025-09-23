@@ -7,12 +7,12 @@ import { PiSpinner } from "react-icons/pi";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 
-const Blogs = ({session}) => {
+const Blogs = ({session})  => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true)
 
     const fetchBlogs = async () => {
-        const blogsArray = []
+        const blogArray = []
         const querySnapshot = await getDocs(collection(db, "Blogs"));
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
@@ -21,10 +21,10 @@ const Blogs = ({session}) => {
                 id: doc.id,
                 ...doc.data()
             }
-            blogsArray.push(blogsObject)
+            blogArray.push(blogsObject)
         });
 
-        setBlogs(blogsArray)
+        setBlogs(blogArray)
         setLoading(false)
         // console.log(poems);
 
@@ -35,6 +35,7 @@ const Blogs = ({session}) => {
     const handleDelete = async (id)=>{
         await deleteDoc(doc(db, "Blogs", id));
     }
+
 
     return (
         <main className='min-h-dvh p-3'>
@@ -69,9 +70,9 @@ const Blogs = ({session}) => {
                                     Title: <span>{blog.title}</span>
                                 </p>
 
-                                <p className='line-clamp-2 text-sm mt-2'>
+                                <div className='line-clamp-2 text-sm mt-2'>
                                     {blog.content}
-                                </p>
+                                </div>
                             </div>
 
                             <div className='flex items-center justify-between mt-4'>

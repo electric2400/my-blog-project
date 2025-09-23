@@ -35,7 +35,8 @@ const NewPost = ({session}) => {
    
 
    const [processing, setProcessing] = useState(false)
-
+   console.log(session);
+   
 
    const initialValues = {
         title: '',
@@ -62,7 +63,6 @@ const NewPost = ({session}) => {
             console.log(BlogDetails);
             const docRef = await addDoc(collection(db, "Blogs"), BlogDetails);
             console.log("Document written with ID: ", docRef.id);
-
             resetForm()
             handleOpen()
             
@@ -83,7 +83,9 @@ const NewPost = ({session}) => {
     content: "Insert your blog post in here...",
     immediatelyRender: false
   });
+  
 
+  
   
 
   return (
@@ -107,10 +109,10 @@ const NewPost = ({session}) => {
                 <div className='border p-2 rounded min-h-[150px] border-gray-200 outline-none'>
                   <TiptapFormik editor={editor}/>
                 {editor && <EditorContent editor={editor}
-                  onInput={() => setFieldValue("content", editor.getHTML())} 
+                  onInput={() => setFieldValue("content", editor.getText())} 
                 />}
                 </div>
-                <ErrorMessage name='content' component="div" className="text-xs text-red-600"/>
+                <ErrorMessage name='content' component={"p"} className="text-xs text-red-600"/>
                 </div>
 
                 {/*  Submit */}

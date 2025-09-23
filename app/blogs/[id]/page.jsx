@@ -4,12 +4,12 @@ import Link from "next/link";
 import { GoArrowLeft } from "react-icons/go";
 
 
- export const fetchSingleBlog = async (id)=>{
-    if (!id) {
+ export const fetchSingleBlog = async (email)=>{
+    if (!email) {
         return null;
     }
 
-    const docRef = doc(db, "", "SF");
+    const docRef = doc(db, "cities", "SF");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -24,7 +24,7 @@ import { GoArrowLeft } from "react-icons/go";
 }
 
 export default async function exploreDynamic ({params}){
-    const blog = await fetchSingleBlog(params.id)
+    const blog = await fetchSingleBlog(params.email)
     console.log(blog);
     
     return (
