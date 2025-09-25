@@ -31,7 +31,7 @@ const NewPost = ({session}) => {
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   console.log(session?.email);
+   console.log(session);
    
 
    const [processing, setProcessing] = useState(false)
@@ -112,7 +112,7 @@ const NewPost = ({session}) => {
                   onInput={() => setFieldValue("content", editor.getText())} 
                 />}
                 </div>
-                <ErrorMessage name='content' component={"p"} className="text-xs text-red-600"/>
+                <ErrorMessage name='content' component="div" className="text-xs text-red-600"/>
                 </div>
 
                 {/*  Submit */}

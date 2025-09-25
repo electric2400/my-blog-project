@@ -13,7 +13,7 @@ const page = async () => {
    }
 
   return (
-    <main className='min-h-dvh'>
+    <main>
       <NewPost session={session}/>
     </main>
   )

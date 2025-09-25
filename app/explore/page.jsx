@@ -2,7 +2,7 @@
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import Blogs from './blogs'
+import Explore from './explore'
 
 const page = async () => {
     const session = await auth()
@@ -12,7 +12,7 @@ const page = async () => {
     
   return (
     <main className='min-h-dvh'>
-      <Blogs session={session}/>
+      <Explore session={session}/>
     </main>
   )
 }

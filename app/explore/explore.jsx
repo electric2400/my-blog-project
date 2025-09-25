@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { collection, getDocs,  doc, deleteDoc } from "firebase/firestore";
 import { db } from '@/config/firebaseConfig';
 import Link from 'next/link';
-import { PiSpinner } from "react-icons/pi";
+import { BiLoaderCircle } from "react-icons/bi";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 
-const Blogs = ({session})  => {
+const Explore = ({session}) => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true)
+    
+    
 
     const fetchBlogs = async () => {
         const blogArray = []
@@ -36,15 +38,14 @@ const Blogs = ({session})  => {
         await deleteDoc(doc(db, "Blogs", id));
     }
 
-
     return (
         <main className='min-h-dvh p-3'>
-            <h1 className='text-center m-5 font-bold text-2xl max-md:text-lg text-gray-800 w-3/4 mx-auto'>
-                Explore our catalogue of wonderfully crafted Blog posts and interact with our Renowned authors.
+            <h1 className='text-center m-5 font-bold text-2xl text-gray-800 w-3/4 mx-auto'>
+                Explore our catalogue of wonderfully crafted Poems and interact with our Renowned authors.
             </h1>
 
             {
-                loading ? <div className='h-[80vh] flex items-center justify-center'><PiSpinner
+                loading ? <div className='h-[80vh] flex items-center justify-center'><BiLoaderCircle 
                 className='text-4xl animate-spin'/></div> :
                  <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
@@ -57,7 +58,7 @@ const Blogs = ({session})  => {
                                </div>
 
                                {
-                                    blog.authorId == session?.user?.id ?
+                                    blog.authorId == session.user.email ?
                                     <button onClick={()=> handleDelete(blog.id)}>
                                     <FaRegTrashCan/>
                                     </button> : null
@@ -71,7 +72,7 @@ const Blogs = ({session})  => {
                                 </p>
 
                                 <div className='line-clamp-2 text-sm mt-2'>
-                                    {blog.content}
+                                   <div dangerouslySetInnerHTML={{ __html: blog.content }}/>
                                 </div>
                             </div>
 
@@ -80,6 +81,7 @@ const Blogs = ({session})  => {
                                 <p className='text-xs'>
                                     Posted on <span>{blog.timestamp}</span>
                                 </p>
+
 
                                 <Link href={`/explore/${blog.id}`} className='text-xs underline'>Read More</Link>
                             </div>
@@ -96,4 +98,4 @@ const Blogs = ({session})  => {
     )
 }
 
-export default Blogs
+export default Explore

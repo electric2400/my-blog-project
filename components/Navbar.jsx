@@ -14,7 +14,7 @@ import { signOut } from "next-auth/react"
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const { data: session } = useSession()
-  console.log(session);
+  
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -30,10 +30,10 @@ const Navbar = () => {
         {label: "Home", url: "/"},
         {label: "About", url: "/about"},
         {label: "Contact", url: "/contact"},
-        {label: "Blogs", url: "/blogs"},
+        {label: "Explore", url: "/explore"},
     ]
 
-    
+    console.log(session);
 
   return (
      <nav className='shadow-md flex justify-around max-lg:justify-between items-center py-6 px-3'>
