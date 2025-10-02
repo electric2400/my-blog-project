@@ -13,7 +13,7 @@ const page = async () => {
    }
 
   return (
-    <main>
+    <main className='bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500'>
       <NewPost session={session}/>
     </main>
   )

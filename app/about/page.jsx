@@ -26,7 +26,7 @@ const page = () => {
         alt="blog-img"
         width={900}
         height={900}
-        className="w-full h-60"
+        className="w-full h-70"
         />
         <div className='flex flex-col'>
            <h1 className='text-2xl flex justify-center text-black'>Our Vision</h1>
@@ -51,7 +51,7 @@ const page = () => {
         alt="blog-img2"
         width={900}
         height={900}
-        className="w-full h-60"
+        className="w-full h-70"
         />
 
       </div>

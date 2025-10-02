@@ -53,7 +53,8 @@ const Navbar = () => {
             {navItems.map((item, index) => (
                 <Link 
                 key={index}
-                href={item.url} className='text-gray-800 hover:text-blue-600 transition-all duration-150 text-lg text-xl'    
+                href={item.url} className='text-gray-800 bg-gradient-to-r from-purple-600 to-pink-600
+                 bg-clip-text hover:text-transparent transition-all duration-150 text-lg text-xl'    
             >
                {item.label}
             </Link> 
@@ -63,7 +64,7 @@ const Navbar = () => {
 
         {/* mobile and tab view*/}
         <div className={`lg:hidden bg-white h-dvh w-full absolute top-0 left-0 
-        flex flex-col items-center gap-10 pt-20 
+        flex flex-col items-center gap-10 pt-25 
             ${navOpen ? "opacity-100" : "opacity-0"
             }`}>
                 
@@ -71,7 +72,8 @@ const Navbar = () => {
                 <Link
                 onClick={()=> setNavOpen(false)}
                 key={index}
-                href={item.url} className='text-gray-800 hover:text-blue-600 transition-all duration-150 text-xl'
+                href={item.url} className='text-gray-800 hover:bg-gradient-to-r from-purple-600 to-pink-600
+                 bg-clip-text hover:text-transparent transition-all duration-150  text-xl'
 
             >
                {item.label}
@@ -107,9 +109,7 @@ const Navbar = () => {
         <MenuItem onClick={handleClose}><button onClick={() => signOut()}>Sign Out</button></MenuItem>
       </Menu>
     </div>) :(
-         <Link href={"auth/signin"} className='flex gap-2 items-center hover:text-blue-600 transition-all 
-         duration-150 text-lg 
-        text-gray-800 max-lg:ml-auto z-40'>
+         <Link href={"auth/signin"} className='flex gap-2 items-center text-lg text-gray-800 max-lg:ml-auto z-40'>
         
         <p className='max-md:hidden text-xl'>Sign In</p>
         <FaRegUser />

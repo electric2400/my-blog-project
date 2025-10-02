@@ -52,10 +52,11 @@ const NewPost = ({session}) => {
           try {
             setProcessing(true)
             const BlogDetails = {
-              author: session.user.name,
+              author: session.user.name || "",
               image: session.user.image,
               timestamp: new Date().toLocaleDateString(),
               authorId: session?.user?.email,
+              email: session?.user?.email,
               ...values
             }
 
@@ -90,8 +91,9 @@ const NewPost = ({session}) => {
 
   return (
     <main className='min-h-dvh flex items-center justify-center'>
-      <div className='lg:w-5xl p-3 mx-4 shadow-lg rounded-md max-lg:w-full'> 
-          <h1 className='flex justify-center font-bold text-3xl max-md:text-2xl'>Create your Blog</h1>
+      <div className='lg:w-5xl p-3 mx-4 max-lg:w-full bg-white/90 backdrop-blur-lg rounded-lg shadow-lg'> 
+          <h1 className='flex justify-center font-bold text-3xl max-md:text-2xl bg-gradient-to-r from-purple-600 to-pink-600 
+          bg-clip-text text-transparent'>Create your Blog</h1>
 
           <div>
             <Formik initialValues={initialValues} validationSchema={formValidation} onSubmit={handleSubmit}>
@@ -100,15 +102,15 @@ const NewPost = ({session}) => {
                 {/*  Title Field */}
                 <div className='flex flex-col gap-2'>
                 <label htmlFor="" className='text-xl max-md:text-sm text-gray-800 font-semibold'>Blog Title</label>
-                <Field name="title" type="text" className="outline-none border rounded-md border-gray-200 p-2"/>
+                <Field name="title" type="text" className="outline-none border rounded-md border-gray-200 p-2 shadow-sm"/>
                 <ErrorMessage name='title' component={"p"} className="text-xs text-red-600"/>
                 </div>
                 {/*  Tiptap Editor */}
                 <div>
                 <label htmlFor="" className='text-xl max-md:text-sm text-gray-800 font-semibold'>Content</label>
-                <div className='border p-2 rounded min-h-[150px] border-gray-200 outline-none'>
-                  <TiptapFormik editor={editor}/>
-                {editor && <EditorContent editor={editor}
+                <div className='border p-2 rounded min-h-[150px] border-gray-200 outline-none shadow-sm'>
+                  <TiptapFormik editor={editor} />
+                {editor && <EditorContent editor={editor} 
                   onInput={() => setFieldValue("content", editor.getText())} 
                 />}
                 </div>
@@ -118,7 +120,7 @@ const NewPost = ({session}) => {
                 {/*  Submit */}
                 <button
                   type='submit'
-                  className='px-4 py-2 bg-blue-600 text-white rounded'
+                  className='px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-md hover:opacity-80 transition'
                      >      
                       {
                          processing ? <BiLoaderCircle className='animate-spin text-2xl

@@ -21,7 +21,7 @@ const page = async () => {
           </div>
         </div>
 
-        <div className='w-110 bg-white pt-30 px-14 flex flex-col  max-lg:w-full'>
+        <div className='w-110 bg-white pt-25 px-14 flex flex-col  max-lg:w-full'>
           <p className='text-center text-2xl font-black'>Tech <span className='text-blue-500'>News</span></p>
           <div className='flex flex-col gap-6 mt-20'>
             <h1 className="text-center text-gray-800 font-bold text-lg">
