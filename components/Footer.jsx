@@ -7,7 +7,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <main className='border-t border-gray-300 pb-15 py-8 px-6 max-lg:px-4'>
+    <main className='bg-white border-t border-gray-300 pb-15 py-8 px-6 max-lg:px-4'>
       <div className='flex justify-between max-md:flex-col max-md:gap-10'>
         <Link href={"/"} className='flex'>
           <Image

@@ -63,8 +63,8 @@ const Navbar = () => {
 
 
         {/* mobile and tab view*/}
-        <div className={`lg:hidden bg-white h-dvh w-full absolute top-0 left-0 
-        flex flex-col items-center gap-10 pt-25 
+        <div className={`hidden bg-white h-dvh w-full absolute top-0 left-0 
+        flex flex-col items-center gap-10 pt-25  
             ${navOpen ? "opacity-100" : "opacity-0"
             }`}>
                 
