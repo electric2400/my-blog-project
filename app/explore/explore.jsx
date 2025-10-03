@@ -112,7 +112,7 @@ const Explore = ({session}) => {
 
     return (
         <main className='min-h-dvh p-3'>
-            <h1 className='text-center m-5 font-bold text-2xl text-gray-800 w-3/4 mx-auto'>
+            <h1 className='text-center m-5 max-md:text-xl font-bold text-2xl text-gray-800 w-3/4 mx-auto'>
                 Explore our catalogue of wonderfully crafted Blog posts and interact with our Renowned authors.
             </h1>
 

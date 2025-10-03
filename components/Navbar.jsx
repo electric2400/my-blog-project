@@ -62,24 +62,23 @@ const Navbar = () => {
         </div>
 
 
-        {/* mobile and tab view*/}
-        <div className={`hidden bg-white h-dvh w-full absolute top-0 left-0 
-        flex flex-col items-center gap-10 pt-25  
-            ${navOpen ? "opacity-100" : "opacity-0"
-            }`}>
-                
-             {navItems.map((item, index) => (
-                <Link
-                onClick={()=> setNavOpen(false)}
-                key={index}
-                href={item.url} className='text-gray-800 hover:bg-gradient-to-r from-purple-600 to-pink-600
-                 bg-clip-text hover:text-transparent transition-all duration-150  text-xl'
-
-            >
-               {item.label}
-            </Link> 
-            ))}
-        </div>
+         {/* mobile and tab view */}
+     {navOpen && (
+      <div className="lg:hidden bg-white h-dvh w-full absolute top-0 left-0 flex flex-col 
+      items-center gap-10 pt-25 z-20">
+       {navItems.map((item, index) => (
+      <Link
+        key={index}
+        href={item.url}
+        onClick={() => setNavOpen(false)}
+        className="text-gray-800 hover:bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text hover:text-
+        transparent transition-all duration-150 text-xl"
+      >
+        {item.label}
+      </Link>
+        ))}
+      </div>
+    )}
 
         {
             session? ( <div className='ml-auto lg:ml-0'>

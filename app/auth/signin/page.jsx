@@ -34,7 +34,7 @@ const page = async () => {
                 await signIn("google")
               }}
             >
-              <button className='border flex items-center justify-center gap-3 border-gray-300 py-3 rounded-full w-full z-50'>
+              <button className='border flex items-center justify-center gap-3 border-gray-300 py-3 rounded-full w-full'>
               <FcGoogle/>
               <p>Continue with Google</p>
             </button>
